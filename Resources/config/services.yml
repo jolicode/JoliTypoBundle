@@ -1,0 +1,2 @@
+parameters:
+    joli_typo.fixer.class: JoliTypo\Fixer
