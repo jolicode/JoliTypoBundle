@@ -1,0 +1,20 @@
+{
+    "name": "jolicode/jolitypo-bundle",
+    "type": "symfony-bundle",
+    "description": "JoliTypo integration for your Symfony2 project",
+    "keywords": ["typography", "jolitypo", "hyphen", "smartquote"],
+    "homepage": "https://github.com/jolicode/JoliTypoBundle",
+    "license": "MIT",
+    "authors": [
+        { "name": "Damien Alexandre", "email": "dalexandre@jolicode.com" }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.1",
+        "jolicode/jolitypo": "~0.20"
+    },
+    "autoload": {
+        "psr-0": { "Joli\\TypoBundle": "" }
+    },
+    "target-dir": "Joli/TypoBundle"
+}
