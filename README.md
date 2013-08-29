@@ -5,34 +5,46 @@ Configuration
 
 You define your Fixers preset as you want:
 
-    joli_code_joli_typo:
-        presets:
-            fr:
-                fixers: [ Ellipsis, Dimension, Dash, FrenchQuotes, FrenchNoBreakSpace, CurlyQuote, Trademark ]
-                locale: fr_FR
-            en:
-                fixers: [ Ellipsis, Dimension, Dash, EnglishQuotes, CurlyQuote, Trademark ]
-                locale: en_GB
+```yaml
+joli_code_joli_typo:
+    presets:
+        fr:
+            fixers: [ Ellipsis, Dimension, Dash, FrenchQuotes, FrenchNoBreakSpace, CurlyQuote, Trademark ]
+            locale: fr_FR
+        en:
+            fixers: [ Ellipsis, Dimension, Dash, EnglishQuotes, CurlyQuote, Trademark ]
+            locale: en_GB
+```
 
 Please refer to the [JoliTypo documentation](https://github.com/jolicode/JoliTypo/blob/master/README.md) to learn more about fixers,
 and how to combine them.
 
+**Note:** there is no cache involved with JoliTypo, take care of it if you want to save some CPU cycles :grimacing:
+
 Twig function
 =============
 
-The Bundle expose a new Twig function `jolitypo` waiting for two arguments: HTML content to fix and the preset name.
+The Bundle expose a new Twig function and filter named `jolitypo`, waiting for two arguments: HTML content to fix and the preset name.
 
-    {{ jolitypo('<p>Hi folk!</p>', 'fr') | raw }}
+```twig
+{{ jolitypo('<p>Hi folk!</p>', 'fr') | raw }}
+
+{# or #}
+
+{{ '<p>Hi folk!</p>' | jolitypo('fr') }}
+```
 
 Another way to use it is by passing a whole block to it:
 
-    {% block content %}
-        {{ jolitypo(block('real_content'), 'fr') | raw }}
-    {% endblock %}
+```twig
+{% block content %}
+    {{ jolitypo(block('real_content'), 'fr') | raw }}
+{% endblock %}
 
-    {% block real_content %}
-        <h2>My whole dynamic page</h2>
-    {% endblock %}
+{% block real_content %}
+    <h2>My whole dynamic page</h2>
+{% endblock %}
+```
 
 Todo
 ====

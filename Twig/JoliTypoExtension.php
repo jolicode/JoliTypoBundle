@@ -17,6 +17,7 @@ class JoliTypoExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFunction('jolitypo', array($this, 'translate')),
+            new \Twig_SimpleFilter('jolitypo', array($this, 'translate')),
         );
     }
 
