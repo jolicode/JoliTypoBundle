@@ -1,7 +1,6 @@
 <?php
 namespace Joli\TypoBundle\Twig;
 
-use JoliTypo\Fixer;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 class JoliTypoExtension extends \Twig_Extension

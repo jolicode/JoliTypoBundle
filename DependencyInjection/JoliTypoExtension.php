@@ -23,11 +23,29 @@ class JoliTypoExtension extends Extension
     {
         $configuration  = new Configuration();
         $config         = $this->processConfiguration($configuration, $configs);
-        $presets        = array();
+        $presets        = $this->createPresetDefinition($container, $config);
 
+        // Twig extension
         $twig_extension = new Definition('Joli\TypoBundle\Twig\JoliTypoExtension');
         $twig_extension->addTag('twig.extension');
+        $twig_extension->setArguments(array($presets));
+
         $container->setDefinition('joli_typo.twig_extension', $twig_extension);
+
+        // PHP Template Helper
+        $php_helper     = new Definition('Joli\TypoBundle\Templating\Helper\JoliTypoHelper');
+        $twig_extension->addTag('templating.helper', array('alias' => 'jolitypo'));
+        $twig_extension->setArguments(array($presets));
+
+        $container->setDefinition('joli_typo.template_helper', $php_helper);
+
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
+    }
+
+    private function createPresetDefinition(ContainerBuilder $container, $config)
+    {
+        $presets = array();
 
         foreach ($config['presets'] as $name => $preset) {
             $definition = new Definition("%joli_typo.fixer.class%");
@@ -48,9 +66,6 @@ class JoliTypoExtension extends Extension
             $presets[$name] = new Reference(sprintf('joli_typo.fixer.%s', $name));
         }
 
-        $twig_extension->setArguments(array($presets));
-
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        return $presets;
     }
 }

@@ -46,6 +46,15 @@ Another way to use it is by passing a whole block to it:
 {% endblock %}
 ```
 
+PHP Template helper
+===================
+
+A `jolitypo` helper is available in the view, exposing a `fix` method:
+
+```php
+<?php echo $view['jolitypo']->fix('<p>Content</p>', 'en'); ?>
+```
+
 Todo
 ====
 
