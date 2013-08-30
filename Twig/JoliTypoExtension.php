@@ -22,7 +22,7 @@ class JoliTypoExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('jolitypo', array($this, 'translate'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFilter('jolitypo', array($this, 'translate'), array('pre_escape' => 'html', 'is_safe' => array('html'))),
         );
     }
 
