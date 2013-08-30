@@ -15,8 +15,14 @@ class JoliTypoExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFilter('jolitypo', array($this, 'translate')),
             new \Twig_SimpleFunction('jolitypo', array($this, 'translate')),
+        );
+    }
+
+    public function getFilters()
+    {
+        return array(
+            new \Twig_SimpleFilter('jolitypo', array($this, 'translate'), array('is_safe' => array('html'))),
         );
     }
 
