@@ -34,8 +34,8 @@ class JoliTypoExtension extends Extension
 
         // PHP Template Helper
         $php_helper     = new Definition('Joli\TypoBundle\Templating\Helper\JoliTypoHelper');
-        $twig_extension->addTag('templating.helper', array('alias' => 'jolitypo'));
-        $twig_extension->setArguments(array($presets));
+        $php_helper->addTag('templating.helper', array('alias' => 'jolitypo'));
+        $php_helper->setArguments(array($presets));
 
         $container->setDefinition('joli_typo.template_helper', $php_helper);
 
