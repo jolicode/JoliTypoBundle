@@ -3,10 +3,16 @@ This bundle integrate the [JoliTypo](https://github.com/jolicode/JoliTypo) libra
 Configuration
 =============
 
-You define your Fixers preset as you want:
+Add the Bundle to your Kernel:
+
+```php
+  new Joli\TypoBundle\JoliTypoBundle(),
+```
+
+Define your Fixers preset as you want:
 
 ```yaml
-joli_code_joli_typo:
+joli_typo:
     presets:
         fr:
             fixers: [ Ellipsis, Dimension, Dash, FrenchQuotes, FrenchNoBreakSpace, CurlyQuote, Trademark ]
