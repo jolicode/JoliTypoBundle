@@ -17,8 +17,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder    = new TreeBuilder();
-        $rootNode       = $treeBuilder->root('joli_typo');
+        $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root('joli_typo');
 
         $rootNode
             ->fixXmlConfig('preset')

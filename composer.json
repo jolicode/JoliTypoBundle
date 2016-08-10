@@ -10,10 +10,10 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "jolicode/jolitypo": "~0.2"
+        "symfony/framework-bundle": "^2.3|^3.0",
+        "jolicode/jolitypo": "^1.0"
     },
     "autoload": {
-        "psr-0": { "Joli\\TypoBundle": "" }
-    },
-    "target-dir": "Joli/TypoBundle"
+        "psr-4": { "Joli\\TypoBundle\\": "" }
+    }
 }
