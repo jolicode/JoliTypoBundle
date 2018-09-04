@@ -1,3 +1,5 @@
+**DEPRECATED**: Since 1.0.3, JoliTypo provides built-in support for Symfony and Twig.
+
 This bundle integrate the [JoliTypo](https://github.com/jolicode/JoliTypo) library into Symfony2.
 
 Configuration
